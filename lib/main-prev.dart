@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: RandomWords(),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -44,9 +44,6 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-/**
- * もう使ってない
- */
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
@@ -124,10 +121,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-
-/**
- * こっち使ってる
- */
 class RandomWordsState extends State<RandomWords> {
 
   final _suggestions = <WordPair>[];
@@ -136,36 +129,9 @@ class RandomWordsState extends State<RandomWords> {
   // TODO Add build() method
   @override
   Widget build(BuildContext context) {
-      return Scaffold(
-      appBar: AppBar(
-        title: Text('Startup Name Generator'),
-      ),
-      body: _buildSuggestions(),
-    );
+    final wordPair = WordPair.random();
+    return Text(wordPair.asPascalCase);
   }
-
-  Widget _buildSuggestions() {
-    return ListView.builder(
-        padding: const EdgeInsets.all(16.0),
-        itemBuilder: /*1*/ (context, i) {
-          if (i.isOdd) return Divider(); /*2*/
-
-          final index = i ~/ 2; /*3*/
-          if (index >= _suggestions.length) {
-            _suggestions.addAll(generateWordPairs().take(10)); /*4*/
-          }
-          return _buildRow(_suggestions[index]);
-        });
-  }
-
-  Widget _buildRow(WordPair pair) {
-    return ListTile(
-      title: Text(
-        pair.asPascalCase,
-        style: _biggerFont,
-      ),
-    );
-  }  
 }
 
 class RandomWords extends StatefulWidget {
