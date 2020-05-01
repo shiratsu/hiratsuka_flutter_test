@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:hiratsuka_flutter_test/nav/top.dart';
 
 void main() => runApp(MyApp());
 
@@ -159,12 +160,32 @@ class RandomWordsState extends State<RandomWords> {
   }
 
   Widget _buildRow(WordPair pair) {
-    return ListTile(
-      title: Text(
-        pair.asPascalCase,
-        style: _biggerFont,
-      ),
+    // return ListTile(
+    //   title: Text(
+    //     pair.asPascalCase,
+    //     style: _biggerFont,
+    //   ),
+    // );
+
+    // return Card(
+    //     child: Padding(
+    //         child: Text(pair.asPascalCase, style: _biggerFont,),
+    //         padding: EdgeInsets.all(20.0),),
+    // );
+
+    return Container(
+      height: 100.0,
+      width: double.infinity,
+      color: Colors.white,
+      padding: EdgeInsets.all(10.0),
+      margin: EdgeInsets.all(10.0),
+      child: Padding(
+            child: Text(pair.asPascalCase, style: _biggerFont,),
+            padding: EdgeInsets.all(20.0),)
     );
+
+
+
   }  
 }
 
