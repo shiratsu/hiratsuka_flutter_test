@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'second.dart';
 
 class Tab1 extends StatefulWidget {
   @override
@@ -20,9 +21,19 @@ class _Tab1State extends State<Tab1> with AutomaticKeepAliveClientMixin<Tab1> {
         title: Text('Tab1'),
       ),
       body: Center(
-        child: Text(
-          'This is content of Tab1',
-          style: TextStyle(fontSize: 30),
+        // child: Text(
+        //   'This is content of Tab1',
+        //   style: TextStyle(fontSize: 30),
+        // ),
+        child: RaisedButton(
+          child: Text('Open route'),
+          onPressed: () {
+            // Navigate to second route when tapped.
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SecondRoute()),
+            );  
+          },
         ),
       ),
     );

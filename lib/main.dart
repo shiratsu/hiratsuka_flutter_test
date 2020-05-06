@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
-import 'package:hiratsuka_flutter_test/nav/top.dart';
-import 'tab/tab_containter_default.dart';
+import 'widget/app.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TabContainerDefault(),
+      home: App(),
 //      TabContainerBottom(),
 //      TabContainerLoad1Time(),
 //      TabContainerIndexedStack(),
